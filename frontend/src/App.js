@@ -11,6 +11,7 @@ import ChefDashboard from './pages/ChefDashboard';
 import ChefProfile from './pages/ChefProfile';
 import Recipes from './pages/Recipes';
 
+//private route setup
 const PrivateRoute = ({ children, role }) => {
   const { user, loading } = useAuth();
   if (loading) return <div className="loading">Loading...</div>;
@@ -19,6 +20,7 @@ const PrivateRoute = ({ children, role }) => {
   return children;
 };
 
+//route for different functionalities
 function AppRoutes() {
   return (
     <>
@@ -43,6 +45,7 @@ function AppRoutes() {
   );
 }
 
+//exporting
 export default function App() {
   return (
     <AuthProvider>
