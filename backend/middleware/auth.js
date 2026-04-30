@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
+//token extraction and database retrieval
 const protect = async (req, res, next) => {
   let token;
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
@@ -16,6 +17,7 @@ const protect = async (req, res, next) => {
   if (!token) return res.status(401).json({ message: 'Not authorized, no token' });
 };
 
+//allows access only to chef
 const chefOnly = (req, res, next) => {
   if (req.user && (req.user.role === 'chef' || req.user.role === 'admin')) return next();
   res.status(403).json({ message: 'Chef access required' });

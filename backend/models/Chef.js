@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//database schema for chef
 const chefSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true, unique: true },
   name: { type: String, required: true },
@@ -13,5 +14,6 @@ const chefSchema = new mongoose.Schema({
   },
   createdAt: { type: Date, default: Date.now }
 });
+
 
 module.exports = mongoose.model('Chef', chefSchema);

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//database schema for recipe
 const recipeSchema = new mongoose.Schema({
   chef: { type: mongoose.Schema.Types.ObjectId, ref: 'Chef', required: true },
   title: { type: String, required: true, trim: true },
